@@ -1,12 +1,29 @@
-
 import React from "react";
 import { useState } from "react";
 import { Formik, Field, Form } from "formik";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../page/Contact.css";
 import newimage from "../assets/news1.jpg";
+import MaskedInput from "react-text-mask";
 
 import * as Yup from "yup";
+
+const phoneNumberMask = [
+  "(",
+  /[1-9]/,
+  /\d/,
+  /\d/,
+  ")",
+  " ",
+  /\d/,
+  /\d/,
+  /\d/,
+  "-",
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+];
 
 const Contact = () => {
   const [image, setImage] = useState(null);
@@ -19,7 +36,7 @@ const Contact = () => {
   };
 
   return (
-      <div className="contact-wrap">
+    <div className="contact-wrap">
       <div className="row">
         <div className="col-md-6">
           <Formik
@@ -29,6 +46,7 @@ const Contact = () => {
               subject: "",
               content: "",
               select: "",
+              date: "",
             }}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
@@ -44,6 +62,8 @@ const Contact = () => {
               email: Yup.string()
                 .email("Invalid email address")
                 .required("Email is required"),
+              date: Yup.string().required("DOB is required"),
+              phone: Yup.string().required("Required"),
             })}
           >
             {(formik, isSubmitting) => (
@@ -106,19 +126,19 @@ const Contact = () => {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="subject">Date</label>
+                    <label htmlFor="date">Date</label>
                     <Field
-                      name="subject"
+                      name="date"
                       className={
-                        formik.touched.subject && formik.errors.subject
+                        formik.touched.date && formik.errors.date
                           ? "form-control is-invalid"
                           : "form-control"
                       }
                       type="date"
                     />
-                    {formik.touched.subject && formik.errors.subject ? (
+                    {formik.touched.date && formik.errors.date ? (
                       <div className="invalid-feedback">
-                        {formik.errors.subject}
+                        {formik.errors.date}
                       </div>
                     ) : null}
                   </div>
@@ -126,7 +146,7 @@ const Contact = () => {
 
                 <div className="d-flex">
                   <div className="form-group">
-                    {/* <label htmlFor="content">Select Country</label> */}
+                    <label htmlFor="content">Select Country</label>
                     <select
                       class="form-select"
                       id="inputGroupSelect04"
@@ -139,7 +159,8 @@ const Contact = () => {
                     </select>
                   </div>
 
-                  <div class="form-group">
+                  <div className="form-group ">
+                    <label htmlFor="file upload">File Upload</label>
                     <input
                       type="file"
                       class="form-control"
@@ -158,22 +179,74 @@ const Contact = () => {
                     alt="preview"
                   />
                 )}
+                <div className="d-flex">
+                  <div className="form-group">
+                    <label htmlFor="content">Phone Number</label>
+                    {/* <input type="tel" name="phone" className="form-control" /> */}
+                    <Field
+                      name="phone"
+                      render={({ field }) => (
+                        <MaskedInput
+                          {...field}
+                          mask={phoneNumberMask}
+                          id="phone"
+                          // placeholder="Enter your phone number"
+                          className={
+                            formik.errors.phone && formik.touched.phone
+                              ? "form-control is-invalid"
+                              : "form-control"
+                          }
+                          type="text"
+                        />
+                      )}
+                    />
 
-                <div className="form-group">
+                    {formik.errors.phone && formik.touched.phone && (
+                      <div className="invalid-feedback">
+                        {formik.errors.phone}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div className="form-group">
+                  <label htmlFor="category">Choose Your Category</label>
+                  <div class="form-check">
+                  
+                  <label class="form-check-label" for="inlineCheckbox1">
+                      Entertainment
+                    </label>
+                    <input
+                      className="form-check-input form-control"
+                      type="checkbox"
+                      id="inlineCheckbox1"
+                      value="option1"
+                    />
+                    
+                  </div>
+                  <div className="form-check ">
+                    <input
+                      className="form-check-input form-control"
+                      type="checkbox"
+                      id="inlineCheckbox2"
+                      value="option2"
+                    />
+                    <label className="form-check-label" for="inlineCheckbox2">
+                      Sports
+                    </label>
+                  </div>
+                  </div>
+
+                </div>
+
+                <div className="form-group-text">
                   <label htmlFor="content">Content</label>
-                  <Field
-                    name="content"
-                    className="form-control"
-                    as="textarea"
-                    rows={3}
-                    cols={10}
-                  />
+                  <textarea name="content" className="form-control" />
                 </div>
 
                 <div className="form-group">
                   <button
                     type="submit"
-                    className="btn btn-primary submit-btn"
+                    className="btn btn-light submit-btn"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Please wait..." : "Submit"}
@@ -186,8 +259,8 @@ const Contact = () => {
         <div className="col-md-6">
           <img src={newimage} className="img-fluid" alt="new logo" />
         </div>
-        </div>
-        </div>
+      </div>
+    </div>
   );
 };
 

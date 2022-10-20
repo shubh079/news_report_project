@@ -28,12 +28,11 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="homepage-wrapper">
       <div
         id="carouselExampleControls"
-        className="carousel slide"
-        data-bs-ride="carousel"
-      >
+        className="carousel slide carousel-resizer"
+        data-bs-ride="carousel">
         <div className="carousel-inner caro-height">
           <div className="carousel-item active">
             <img src={background} className="d-block w-100" alt="..." />

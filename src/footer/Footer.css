@@ -64,6 +64,10 @@
   .footer_links li a:hover{
     color: #fff;
   }
+
+  .btn-newsletter{
+    padding: 8px 20px;
+  }
   /* ==========================================
       CUSTOM UTILS CLASSES
     ========================================== */

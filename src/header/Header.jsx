@@ -3,19 +3,11 @@ import { Link } from "react-router-dom";
 import footerimg from "../assets/logo.jpeg";
 const NavigationBar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-      {/* <div class="row py-4 px-5 g-0">
-            <div class="col-lg-4 col-md-6">
-              <Link to="/" className="d-flex align-items-center p-0 text-dark">
-                <img src={footerimg} className="img-fluids" alt="news logo" />
-              </Link>
-              </div>
-            </div> */}
-           
-        {/* <a class="navbar-brand" href="#">Navbar</a> */}
+    
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container-fluid">
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -23,21 +15,21 @@ const NavigationBar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <img src={footerimg} width="45" alt="" class="d-inline-block align-middle mr-2"/>
+        <img src={footerimg} width="45" alt="" className="d-inline-block align-middle mr-2"/>
 
         
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <Link class="nav-link" to="/" aria-current="page">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link" to="/" aria-current="page">
                 Home
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/explore">
+            <li className="nav-item">
+              <Link className="nav-link" to="/explore">
                 Explore
               </Link>
             </li>
@@ -46,20 +38,20 @@ const NavigationBar = () => {
                
               </Link>
             </li> */}
-            <li class="nav-item">
-              <Link class="nav-link" to="/contact">
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">
                 Contact Us
               </Link>
             </li>
           </ul>
-          <form class="d-flex">
+          <form className="d-flex">
             <input
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-primary" type="submit">
+            <button className="btn btn-outline-light" type="submit">
               Search
             </button>
           </form>

@@ -24,9 +24,9 @@
     
 }
 
-/* .caro-height{
+.caro-height{
     height: 27rem;
-} */
+}
 
 .searchbar{
           position: absolute;
@@ -54,4 +54,9 @@
     margin: 2px;
     justify-content: space-between;
 
+}
+
+.carousel-resizer{
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
