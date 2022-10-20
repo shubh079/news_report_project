@@ -1,0 +1,51 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
+
+.form-group{
+    font-family: 'Poppins', sans-serif;
+    margin: 10px;
+    padding: 10px;
+    
+}
+
+.rowcontact{
+    width: 80%;
+    border: 2px solid #cdcdcd;
+    background: #212521;
+    color: #fff;
+}
+
+
+/* .contactUs{
+
+} */
+
+.contact_wrp{
+    height: 36rem;
+    width: 100%;
+    overflow: hidden;
+}
+ 
+.contact-wrap{
+    background: #212521;
+    color: #fff;
+    border: 2px solid white;
+}
+
+.form-group{
+    width: 100%;
+}
+
+.img-6{
+    height: 100%;
+    width: 100%;
+}
+
+/* .submit-btn{
+    padding: 7px 225px;
+} */
+
+.img-disp {
+    width: 14%;
+    height: auto;
+}
