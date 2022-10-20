@@ -18,6 +18,7 @@ const App = () => {
           <Route exact path="/explore/" element={<Explore />} />
           <Route path="/details/:id" element={<Details />} />
           <Route exact path="/contact" element={<Contact />} />
+          <Route path="/test" element={<>Test</>}/>
           <Route path="*" element={<>404 page Not Found</>}/>
         </Routes>
         <Footer/>
