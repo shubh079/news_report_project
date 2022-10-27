@@ -27,6 +27,9 @@ const phoneNumberMask = [
 
 const Contact = () => {
   const [image, setImage] = useState(null);
+  const deleteImage = () => {
+    setImage(null)
+  }
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -173,11 +176,14 @@ const Contact = () => {
                 </div>
 
                 {image && (
+                  <div className="imageup">
+                    <button type="button" onClick={deleteImage} class="btn btn-danger remove">Remove</button>
                   <img
                     src={URL.createObjectURL(image)}
                     className="img-fluid img-disp"
                     alt="preview"
                   />
+                  </div>
                 )}
                 <div className="d-flex">
                   <div className="form-group">
@@ -207,35 +213,60 @@ const Contact = () => {
                       </div>
                     )}
                   </div>
-                  
-                  <div className="form-group">
-                  <label htmlFor="category">Choose Your Category</label>
-                  <div class="form-check">
-                  
-                  <label class="form-check-label" for="inlineCheckbox1">
-                      Entertainment
-                    </label>
-                    <input
-                      className="form-check-input form-control"
-                      type="checkbox"
-                      id="inlineCheckbox1"
-                      value="option1"
-                    />
-                    
-                  </div>
-                  <div className="form-check ">
-                    <input
-                      className="form-check-input form-control"
-                      type="checkbox"
-                      id="inlineCheckbox2"
-                      value="option2"
-                    />
-                    <label className="form-check-label" for="inlineCheckbox2">
-                      Sports
-                    </label>
-                  </div>
-                  </div>
 
+                  <div className="form-group">
+                    <label htmlFor="category">Choose Your Category</label>
+                    <div class="form-check">
+                      <label class="form-check-label" for="inlineCheckbox1">
+                        Entertainment
+                      </label>
+                      <input
+                        className="form-check-input form-control"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                      />
+                    </div>
+                    <div className="form-check ">
+                      <input
+                        className="form-check-input form-control"
+                        type="checkbox"
+                        id="inlineCheckbox2"
+                        value="option2"
+                      />
+                      <label className="form-check-label" for="inlineCheckbox2">
+                        Sports
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* radio-button */}
+                <div className="form-group">
+                    <label htmlFor="category">Choose Your Gender</label>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1"
+                  />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault2"
+                    checked
+                  />
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Female
+                  </label>
+                </div>
                 </div>
 
                 <div className="form-group-text">

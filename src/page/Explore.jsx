@@ -58,7 +58,7 @@ const Explore = () => {
         </p>
       }
     >
-      <Row xs={2} md={4} className="g-4">
+      <Row xs={1} md={4} className="g-4">
         {news?.map((item, idx) => (
           <Col key={new Date().getTime() + idx}>
             <Card style={{ margin: "10px" }}>
