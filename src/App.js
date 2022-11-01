@@ -1,6 +1,7 @@
 import Contact from "./page/Contact";
 import Details from "./page/Details";
 import Home from "./page/Home";
+import Category from "./page/Category";
 import Explore from "./page/Explore";
 import Header from "./header/Header";
 import './App.css'
@@ -18,7 +19,9 @@ const App = () => {
           <Route exact path="/explore/" element={<Explore />} />
           <Route path="/details/:id" element={<Details />} />
           <Route exact path="/contact" element={<Contact />} />
+          <Route path="/category" element={<Category/>}/>
           <Route path="*" element={<>404 page Not Found</>}/>
+          
         </Routes>
         <Footer/>
       </div>

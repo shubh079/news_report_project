@@ -5,52 +5,25 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useDispatch, useSelector} from "react-redux";
 import { setPosts } from "../redux/actions/Homeaction";
-
+import "../header/Header.css";
 const NavigationBar = () => {
   const posts = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const [query, setQuery] = useState("");
   const [news, setNews] = useState([]);
-  // const  API_URL = ' https://newsapi.org/v2/everything?q=bitcoin&apiKey=9ba6197398074565a30dc756ee82b8d0';
   
   const fetchData = async (title) => {
     const response = await axios.get(`https://newsapi.org/v2/everything?q=${title}&language=hi&apiKey=9ba6197398074565a30dc756ee82b8d0`);
-      // setNews(response.news);
-      
      console.log(response);
      dispatch(setPosts(response.data));
- 
-    // const newsData = await response.data;
-    // setNews(newsData.articles);
      
    };
-
- 
-
   const handleSearch = (e) => {
     e.preventDefault();
     fetchData(query);
   }
 
-
-  // useEffect(() => {
-  //   const fetchData = async (title) => {
-  //     const response = await axios.get(`${API_URL}&s=${title}`);
-  //       // setNews(response.news);
-      
-       
-
-  //     // const newsData = await response.data;
-  //     // setNews(newsData.articles);
-    
-  //    };
-
-  //   fetchData(query);
-  // }, []);
-
-
-  
   return (
 
     
@@ -68,7 +41,7 @@ const NavigationBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <img src={footerimg} width="45" alt="" className="d-inline-block align-middle mr-2"/>
+        <img src={footerimg} width="45" alt="" className="d-inline-block align-middle mr-2 image-height"/>
 
         
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -91,6 +64,11 @@ const NavigationBar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/contact">
                 Contact Us
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/category">
+                Category
               </Link>
             </li>
           </ul>

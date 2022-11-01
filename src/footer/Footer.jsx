@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="col-lg-4 col-md-6">
               <h5 className="h1-text text-white">ABC News.</h5>
               <Link to="/" className="d-flex align-items-center p-0 text-dark">
-                <img src={footerimg} className="img-fluids" alt="news logo" />
+                <img src={footerimg} className="img-fluids footer-height" alt="news logo" />
               </Link>
               <p className="small ft-content text-muted">
                 {" "}

@@ -49,13 +49,18 @@
   footer {
     background: #212529;
   }
+
+  .footer-height{
+    border-radius: 50px;
+  }
   .h1-text{
-    margin-right: 252px;
+    margin-right: 249px;
     font-size: inherit;
   }
   .ft-content{
     text-align: left;
     padding: 0px;
+    margin-right: 101px;
   }
   .link-hover:hover{
     color: #fff;
