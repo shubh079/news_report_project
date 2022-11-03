@@ -22,7 +22,6 @@ const Home = () => {
    //creating the ref
    const customeSliders = React.createRef();
    const customeSlider = React.createRef();
-   const [category, setCategory] = useState("");
    const [sliderSettings, setSliderSettings] = useState({
      infinite: true,
      dots: true,
@@ -107,6 +106,7 @@ const Home = () => {
     };
     fetchData();
   }, []);
+  
   if (isload) return <>Loading...</>;
   return (
     <>
@@ -116,7 +116,7 @@ const Home = () => {
             <>
               <div className="card ">
                 <img
-                  src={posts.allPosts.posts?.articles[2]?.urlToImage}
+                  src={posts.results.posts?.articles[2]?.urlToImage}
                   style={{ aspectRatio: "3/2", objectFit: "cover" }}
                   className="card-img-top"
                   variant="top"
@@ -124,7 +124,7 @@ const Home = () => {
                 />
                 <Link to={`/details/${0}`}>
                   <h5 className="card-title">
-                    {posts.allPosts.posts?.articles[2]?.title.slice(0, 100)}...
+                    {posts.results.posts?.articles[2]?.title.slice(0, 100)}...
                   </h5>
                 </Link>
               </div>
@@ -132,7 +132,7 @@ const Home = () => {
           </div>
           <div className="col-xl-6 gap-bt">
             <div className="row g-0 ">
-              {posts.allPosts.posts.articles?.slice(1, 5)?.map((item, idx) => {
+              {posts.results.posts.articles?.slice(1, 5)?.map((item, idx) => {
                 {/* console.log(posts); */}
                 return (
                   <div className="col-md-6 row-gapping hwt-ad" key={new Date().getTime() + idx}>
@@ -161,7 +161,7 @@ const Home = () => {
        <div className="row g-0">
         <h3 className="trend">Trending Posts</h3>
         <Slider className="my-4" {...sliderSettings} ref={customeSliders}>
-          {posts.allPosts.posts.articles?.slice(0, 10)?.map((item, idx) => {
+          {posts.results.posts.articles?.slice(0, 10)?.map((item, idx) => {
             return (
               <div className="imgslider px-4" key={new Date().getTime() + idx}>
                 <div className="card">
@@ -257,7 +257,7 @@ const Home = () => {
             // className="col-lg-3 col-md-4 col-sm-6 col-12 p-2"
             className="col-xl-8 row-gapping"
           >
-            {posts.allPosts.posts.articles?.slice(0, 5)?.map((item, idx) => {
+            {posts.results.posts.articles?.slice(0, 5)?.map((item, idx) => {
               {/* console.log(posts); */}
               return (
                 <div className="card card-gap" key={new Date().getTime() + idx}>

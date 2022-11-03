@@ -28,9 +28,9 @@ const phoneNumberMask = [
 const Contact = () => {
   const [image, setImage] = useState(null);
   const deleteImage = () => {
-    setImage(null)
-  }
-
+    document.getElementById("inputGroupFile02").value = "";
+    setImage(null);
+  };
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       console.log(event.target.files[0]);
@@ -51,9 +51,10 @@ const Contact = () => {
               select: "",
               date: "",
             }}
-            onSubmit={(values, { setSubmitting }) => {
+            onSubmit={(values, { setSubmitting, resetForm }) => {
               setTimeout(() => {
                 alert(JSON.stringify(values, null, 2));
+                resetForm()
                 setSubmitting(false);
               }, 1000);
             }}
@@ -177,12 +178,18 @@ const Contact = () => {
 
                 {image && (
                   <div className="imageup">
-                    <button type="button" onClick={deleteImage} class="btn btn-danger remove">Remove</button>
-                  <img
-                    src={URL.createObjectURL(image)}
-                    className="img-fluid img-disp"
-                    alt="preview"
-                  />
+                    <button
+                      type="button"
+                      onClick={deleteImage}
+                      class="btn btn-danger remove"
+                    >
+                      Remove
+                    </button>
+                    <img
+                      src={URL.createObjectURL(image)}
+                      className="img-fluid img-disp"
+                      alt="preview"
+                    />
                   </div>
                 )}
                 <div className="d-flex">
@@ -243,30 +250,30 @@ const Contact = () => {
 
                 {/* radio-button */}
                 <div className="form-group">
-                    <label htmlFor="category">Choose Your Gender</label>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="flexRadioDefault1"
-                  />
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Male
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="flexRadioDefault2"
-                    checked
-                  />
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    Female
-                  </label>
-                </div>
+                  <label htmlFor="category">Choose Your Gender</label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault2"
+                      checked
+                    />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Female
+                    </label>
+                  </div>
                 </div>
 
                 <div className="form-group-text">

@@ -6,10 +6,12 @@ import Row from "react-bootstrap/Row";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Category = () => {
   const [articles, setArticles] = useState([]);
   const [params] = useSearchParams();
+  const [hasMore, setHasMore] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
   const getCategoryData = async (category) => {
@@ -32,7 +34,19 @@ const Category = () => {
   if (isLoading) return <>Loading...</>;
 
   return (
+    
     <>
+    <InfiniteScroll
+     dataLength={articles.length}
+     next={getCategoryData}
+     hasMore={hasMore}
+     loader={<h4>Loading...</h4>}
+     endMessage={
+       <p style={{ textAlign: "center", color: "darkblue" }}>
+         <b>Thank You.</b>
+       </p>
+     }
+    >
       <Row xs={1} md={4} className="g-4">
         {articles?.map((item, idx) => (
           <Col key={new Date().getTime() + idx}>
@@ -51,6 +65,7 @@ const Category = () => {
           </Col>
         ))}
       </Row>
+      </InfiniteScroll>
     </>
   );
 };

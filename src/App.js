@@ -3,6 +3,7 @@ import Details from "./page/Details";
 import Home from "./page/Home";
 import Category from "./page/Category";
 import Explore from "./page/Explore";
+import Search from "./page/Search";
 import Header from "./header/Header";
 import './App.css'
 import Footer from "../src/footer/Footer";
@@ -20,6 +21,8 @@ const App = () => {
           <Route path="/details/:id" element={<Details />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route path="/category" element={<Category/>}/>
+          {/* <Route path="/search" element={<>Search..</>}/> */}
+          <Route path="/search" element={<Search />}/>
           <Route path="*" element={<>404 page Not Found</>}/>
           
         </Routes>

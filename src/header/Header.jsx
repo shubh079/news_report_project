@@ -4,19 +4,20 @@ import footerimg from "../assets/logo.jpeg";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useDispatch, useSelector} from "react-redux";
-import { setPosts } from "../redux/actions/Homeaction";
+import { setSearch } from "../redux/actions/Homeaction";
 import "../header/Header.css";
+import {useNavigate} from 'react-router-dom'
 const NavigationBar = () => {
-  const posts = useSelector((state) => state);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const [query, setQuery] = useState("");
-  const [news, setNews] = useState([]);
   
   const fetchData = async (title) => {
-    const response = await axios.get(`https://newsapi.org/v2/everything?q=${title}&language=hi&apiKey=9ba6197398074565a30dc756ee82b8d0`);
+    const response = await axios.get(`https://newsapi.org/v2/everything?q=${title}&apiKey=9ba6197398074565a30dc756ee82b8d0`);
      console.log(response);
-     dispatch(setPosts(response.data));
+     dispatch(setSearch(response.data));
+     navigate('/search')
      
    };
   const handleSearch = (e) => {
@@ -72,7 +73,7 @@ const NavigationBar = () => {
               </Link>
             </li>
           </ul>
-          <form className="d-flex">
+          <form onSubmit={handleSearch} className="d-flex">
             <input
               className="form-control me-2"
               type="search"
@@ -80,11 +81,7 @@ const NavigationBar = () => {
               aria-label="Search"
               onChange={(e) => setQuery(e.target.value)}
             />
-            {/* <ul className="list">
-                {news.map}
-
-            </ul> */}
-            <button className="btn btn-outline-light" onClick={handleSearch} type="submit">
+            <button className="btn btn-outline-light" type="submit">
               Search
             </button>
           </form>

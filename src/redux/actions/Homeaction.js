@@ -8,6 +8,15 @@ export const setPosts = (posts) => {
     };
 };
 
+export const setSearch = (search) => {
+    return {
+        type: ActionTypes.SET_SEARCH,
+        payload: search,
+    };
+};
+
+
+
 export const selectedPosts = (posts) => {
     return {
         type : ActionTypes.SELECTED_POSTS,
